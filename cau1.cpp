@@ -1,6 +1,16 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+void xoa()
+{
+    system("cls");
+}
+void dungxoa()
+{
+    cout<<endl;
+    system("pause");
+    xoa();
+}
 class sophuc
 {
     private:
@@ -15,6 +25,10 @@ class sophuc
     friend sophuc operator / (sophuc, sophuc);
     friend bool operator == (sophuc, sophuc);
     friend bool operator != (sophuc, sophuc);
+    friend bool operator > (sophuc, sophuc);
+    friend bool operator <= (sophuc, sophuc);
+    friend bool operator < (sophuc, sophuc);
+    friend bool operator >= (sophuc, sophuc);
 };
 sophuc :: sophuc(double a, double b)
 : thuc(a), ao(b)
@@ -70,11 +84,44 @@ bool operator != (sophuc a, sophuc b)
 {
     return !(a==b);
 }
+bool operator > (sophuc a, sophuc b)
+{
+    return  sqrt(pow(a.thuc, 2) + pow(a.ao, 2)) > sqrt(pow(b.thuc, 2) + pow(b.ao, 2));
+}
+bool operator <= (sophuc a, sophuc b)
+{
+    return !(a > b);
+}
+bool operator < (sophuc a, sophuc b)
+{
+    return sqrt(pow(a.thuc, 2) + pow(a.ao, 2)) < sqrt(pow(b.thuc, 2) + pow(b.ao, 2));
+}
+bool operator >= (sophuc a, sophuc b)
+{
+    return !(a < b);
+}
+
+
 int main()
 {
-    sophuc a, b, c;
-    cin>>a;
-    cin>>b;
-    c = a+b;
-    cout<<c;
+   sophuc a, b, c;
+   cout<<"Nhap hai so phuc\n";
+   cin>>a;
+   cin>>b;
+   cout<<a<<endl;
+   cout<<b<<endl;
+   c = a + b;
+   cout<<"Tong hai so phuc: "<<c<<endl;
+   c = a - b;
+   cout<<"Hieu hai so phuc: "<<c<<endl;
+    c = a * b;
+   cout<<"Tich hai so phuc: "<<c<<endl;
+    c = a / b;
+   cout<<"Thuong hai so phuc: "<<c<<endl;
+   if (a == b) cout<<a<<" == "<<b<<endl;
+   if (a != b) cout<<a<<" != "<<b<<endl;
+   if (a > b) cout<<a<<" > "<<b<<endl;
+   if (a >= b) cout<<a<<" >= "<<b<<endl;
+   if (a < b) cout<<a<<" < "<<b<<endl;
+   if ( a <= b ) cout<<a<<" <= "<<b<<endl;
 }
