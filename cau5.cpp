@@ -28,39 +28,103 @@ CDate CDate :: operator--()
 }
 CDate operator - (CDate q, CDate b)
 {
-    int ngay1, thang1, nam1;
-    ngay1 = q.ngay - b.ngay;
-    thang1 = q.thang - b.thang;
-    nam1 = q.nam - b.nam;
-    if(ngay1 < 0)
+   if (q.ngay - b.ngay < 0)
+   {
+       q.ngay += 30;
+       q.thang--;
+   }
+    if (q.thang - b.thang < 0)
     {
-        ngay1 += 30;
-        thang1--;
+         q.thang += 12;
+         q.nam--;
     }
-    if(thang1 < 0)
-    {
-        thang1 += 12;
-        nam1--;
-    }
-    return CDate(ngay1, thang1, nam1);
+    q.ngay -= b.ngay;
+    q.thang -= b.thang;
+    q.nam -= b.nam;
+    return q;
+  
 }
 CDate operator + (CDate a, CDate b)
 {
-    CDate c;
-    c.ngay = a.ngay + b.ngay;
-    c.thang = a.thang + b.thang;
-    c.nam = a.nam + b.nam;
-    while(c.ngay > 30)
+    if (a.ngay + b.ngay > 30)
     {
-        c.ngay -= 30;
-        c.thang++;
+        a.ngay -= 30;
+        a.thang++;
     }
-    while(c.thang > 12)
+    else if (a.ngay + b.ngay > 31)
     {
-        c.thang -= 12;
-        c.nam++;
+        a.ngay -= 31;
+        a.thang++;
     }
-    return c;
+    else if (a.ngay + b.ngay > 28)
+    {
+        a.ngay -= 28;
+        a.thang++;
+    }
+    else if (a.ngay + b.ngay > 29)
+    {
+        a.ngay -= 29;
+        a.thang++;
+    }
+    else if (a.ngay + b.ngay > 30)
+    {
+        a.ngay -= 30;
+        a.thang++;
+    }
+    else if (a.ngay + b.ngay > 31)
+    {
+        a.ngay -= 31;
+        a.thang++;
+    }
+    else if (a.ngay + b.ngay > 28)
+    {
+        a.ngay -= 28;
+        a.thang++;
+    }
+    else if (a.ngay + b.ngay > 29)
+    {
+        a.ngay -= 29;
+        a.thang++;
+    }
+    else if (a.ngay + b.ngay > 30)
+    {
+        a.ngay -= 30;
+        a.thang++;
+    }
+    else if (a.ngay + b.ngay > 31)
+    {
+        a.ngay -= 31;
+        a.thang++;
+    }
+    else if (a.ngay + b.ngay > 28)
+    {
+        a.ngay -= 28;
+        a.thang++;
+    }
+    else if (a.ngay + b.ngay > 29)
+    {
+        a.ngay -= 29;
+        a.thang++;
+    }
+    else if (a.ngay + b.ngay > 30)
+    {
+        a.ngay -= 30;
+        a.thang++;
+    }
+    else if (a.ngay + b.ngay > 31)
+    {
+        a.ngay -= 31;
+        a.thang++;
+    }
+    if (a.thang + b.thang > 12)
+    {
+        a.thang -= 12;
+        a.nam++;
+    }
+    a.ngay += b.ngay;
+    a.thang += b.thang;
+    a.nam += b.nam;
+    return a;
 }
 istream& operator >> (istream &in, CDate& a)
 {
@@ -97,5 +161,4 @@ int main()
     cout<<"Hay nhap mot so: ";
     int n; cin>>n;
     cout<<"Ngay thu nhat khi cong: "<<a + n;
-
 }
