@@ -226,27 +226,95 @@ bool operator >= (phanso a, phanso b)
 
 int main()
 {
-    phanso a,b,c;
-    cin>>a;
-    cin>>b;
-    cout<<a<<endl;
-    cout<<b<<endl;
-    c = a + b;
-    cout<<a<<" + "<<b<<" = "<<c<<endl;
-    c = a - b;
-    cout<<a<<" - "<<b<<" = "<<c<<endl;
-    c = a * b;
-    cout<<a<<" * "<<b<<" = "<<c<<endl;
-    c = a / b;
-    cout<<a<<" / "<<b<<" = "<<c<<endl;
-    if (a == b) cout<<a<<" = "<<b<<endl;
-    if (a != b) cout<<a<<" != "<<b<<endl;
-    if (a > b) cout<<a<<" > "<<b<<endl;
-    if (a >= b) cout<<a<<" >= "<<b<<endl;
-    if (a < b) cout<<a<<" < "<<b<<endl;
-    if (a <= b) cout<<a<<" <= "<<b<<endl;
-    cout<<"++a "<<++a<<endl;
-    cout<<"a++"<<a++<<endl;
-    cout<<"--a "<<--a<<endl;
-    cout<<"a--"<<a--<<endl;
+   phanso a,b,c;
+   int lc;
+do
+{
+    cout<<"Hay chon yeu cau: "<<endl;
+    cout<<"1. Nhap phan so"<<endl;
+    cout<<"2. Xuat phan so"<<endl;
+    cout<<"3. Cong hai phan so"<<endl;
+    cout<<"4. Tru hai phan so"<<endl;
+    cout<<"5. Nhan hai phan so"<<endl;
+    cout<<"6. Chia hai phan so"<<endl;
+    cout<<"7. Kiem tra hai phan so bang nhau"<<endl;
+    cout<<"8. Kiem tra hai phan so lon hon"<<endl;
+    cout<<"9. Kiem tra hai phan so nho hon"<<endl;
+    cout<<"10. Kiem tra hai phan so lon hon hoac bang"<<endl;
+    cout<<"11. Kiem tra hai phan so nho hon hoac bang"<<endl;
+    cout<<"12. Thoat"<<endl;
+    cin>>lc;
+    switch (lc)
+    {
+    case 1:
+        cout<<"Nhap phan so thu nhat: "<<endl;
+        cin>>a;
+        cout<<"Nhap phan so thu hai: "<<endl;
+        cin>>b;
+        break;
+    case 2:
+        cout<<"Phan so thu nhat: "<<endl;
+        cout<<a;
+        cout<<"Phan so thu hai: "<<endl;
+        cout<<b;
+        system("pause");
+        break;
+    case 3:
+        c=a+b;
+        cout<<"Tong hai phan so: "<<endl;
+        cout<<c;
+        system("pause");
+        break;
+    case 4:
+        c=a-b;
+        cout<<"Hieu hai phan so: "<<endl;
+        cout<<c;
+        system("pause");
+        break;
+    case 5: 
+        c=a*b;
+        cout<<"Tich hai phan so: "<<endl;
+        cout<<c;
+        system("pause");
+        break;
+    case 6:
+        c=a/b;
+        cout<<"Thuong hai phan so: "<<endl;
+        cout<<c;
+        system("pause");
+        break;
+    case 7:
+        if (a==b) cout<<"Hai phan so bang nhau"<<endl;
+        else cout<<"Hai phan so khong bang nhau"<<endl;
+        system("pause");
+        break;
+    case 8:
+        if (a>b) cout<<"Hai phan so lon hon"<<endl;
+        else cout<<"Hai phan so khong lon hon"<<endl;
+        system("pause");
+        break;
+    case 9:
+        if (a<b) cout<<"Hai phan so nho hon"<<endl;
+        else cout<<"Hai phan so khong nho hon"<<endl;
+        system("pause");
+        break;
+    case 10:
+        if (a>=b) cout<<"Hai phan so lon hon hoac bang"<<endl;
+        else cout<<"Hai phan so khong lon hon hoac bang"<<endl;
+        system("pause");
+        break;
+    case 11:
+        if (a<=b) cout<<"Hai phan so nho hon hoac bang"<<endl;
+        else cout<<"Hai phan so khong nho hon hoac bang"<<endl;
+        system("pause");
+        break;
+    case 12:
+        cout<<"Cam on ban da su dung chuong trinh"<<endl;
+        system("pause");
+        break;
+    default:
+        cout<<"Hay chon lai"<<endl;
+        break;
+    }
+} while (lc!=12);
 }

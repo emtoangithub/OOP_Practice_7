@@ -14,6 +14,7 @@ class CString
     friend void operator &= (CString&, string);
     friend bool operator == (CString, CString);
     friend bool operator != (CString, CString);
+    friend CString operator & (CString, CString);
 };
 CString :: ~CString()
 {
@@ -54,48 +55,67 @@ bool operator != (CString a, CString b)
 {
     return !(a == b);
 }
+CString operator & (CString a, CString b)
+{
+    CString tmp;
+    for(int i = 0; i < a.s.length(); i++)
+    {
+        for(int j = 0; j < b.s.length(); j++)
+        {
+            if(a.s[i] == b.s[j])
+            {
+                tmp.s += a.s[i];
+            }
+        }
+    }
+    return tmp;
+}
 
 int main()
 {
     CString a,b,c;
-    cout<<"Luc chua khoi tao"<<endl;
-    cout<<"a: "<<a;
-    cout<<endl;
-    cout<<"b: "<<a;
-    cout<<endl;
-    cout<<"c: "<<a;
-    cout<<endl;
-    cout<<"Nhap a,b,c"<<endl;
-    cin>>a>>b>>c;
-    cout<<"Chuoi duoc nhap gia tri"<<endl;
-    cout<<"a: "<<a;
-    cout<<endl;
-    cout<<"b: "<<b;
-    cout<<endl;
-    cout<<"c: "<<c;
-    cout<<endl;
-    cout<<"Gan chuoi"<<endl;
-    string s;
-    cout<<"Hay nhap chuoi muon gan: ";
-    getline(cin, s);
-    cout<<"Truoc khi gan"<<endl;
-    cout<<"a: "<<a;
-    cout<<endl;
-    a = s;
-    cout<<"sau khi gan"<<endl;
-    cout<<"a: "<<a;
-    cout<<endl;
-    cout<<"Cong hai chuoi"<<endl;
-    cout<<"c truoc khi cong"<<endl;
-    cout<<c;
-    cout<<endl;
-    cout<<"c sau khi cong"<<endl;
-    c = a + b;
-    cout<<c;
-    cout<<endl;
-    cout<<"So sanh hai chuoi"<<endl;
-    cout<<"Hay nhap hai chuoi de so sanh"<<endl;
-    cin>>a>>b;
-    if (a == b) cout<<a<<" == "<<b;
-    else cout<<a<<" != "<<b;
+    int lc;
+    do 
+    {
+        cout<<"Hay chon yeu cau cua ban: "<<endl;
+        cout<<"1. Nhap chuoi"<<endl;
+        cout<<"2. Xuat chuoi"<<endl;
+        cout<<"3. Cong chuoi"<<endl;
+        cout<<"4. Hieu chuoi"<<endl;
+        cout<<"5. So sanh chuoi"<<endl;
+        cout<<"6. Thoat"<<endl;
+        cin>>lc;
+        switch (lc)
+        {
+            case 1:
+                cin>>a;
+                break;
+            case 2:
+                cout<<a;
+                break;
+            case 3:
+                c = a + b;
+                cout<<c;
+                break;
+            case 4:
+                c = a & b;
+                cout<<c;
+                break;
+            case 5:
+                if (a == b)
+                {
+                    cout<<"Chuoi a bang chuoi b";
+                }
+                else
+                {
+                    cout<<"Chuoi a khong bang chuoi b";
+                }
+                break;
+            case 6:
+                break;
+            default:
+                cout<<"Hay chon lai yeu cau";
+                break;
+        }
+    } while (lc != 6);
 }

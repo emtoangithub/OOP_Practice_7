@@ -121,26 +121,58 @@ ostream &operator<<(ostream &os, const CTime &t)
     return os;
 }
 istream &operator>>(istream &is, CTime &t)
-{
+ {
     is >> t.hour >> t.minute >> t.second;
     return is;
 }
 int main()
 {
-    CTime t1(1, 2, 3), t2(4, 5, 6);
-    CTime t3 = t1 + t2;
-    CTime t4 = t1 - t2;
-    CTime t5 = ++t1;
-    CTime t6 = t1++;
-    CTime t7 = --t1;
-    CTime t8 = t1--;
-    cout << t1 << endl;
-    cout << t2 << endl;
-    cout << t3 << endl;
-    cout << t4 << endl;
-    cout << t5 << endl;
-    cout << t6 << endl;
-    cout << t7 << endl;
-    cout << t8 << endl;
-    return 0;
+    CTime a,b,c;
+    int lc;
+    do 
+    {
+        cout<<"Hay lua chon yeu cau cua ban: "<<endl;
+        cout<<"1. Cong 2 gio"<<endl;
+        cout<<"2. Tru 2 gio"<<endl;
+        cout<<"3. Tang 1 giay"<<endl;
+        cout<<"4. Giam 1 giay"<<endl;
+        cout<<"5. Thoat"<<endl;
+        cin>>lc;
+        switch (lc)
+        {
+        case 1:
+            cout<<"Nhap gio thu nhat: ";
+            cin>>a;
+            cout<<"Nhap gio thu hai: ";
+            cin>>b;
+            cout<<"Ket qua: "<<a+b<<endl;
+            break;
+        case 2:
+            cout<<"Nhap gio thu nhat: ";
+            cin>>a;
+            cout<<"Nhap gio thu hai: ";
+            cin>>b;
+            cout<<"Ket qua: "<<a-b<<endl;
+            break;
+        case 3:
+            cout<<"Nhap gio thu nhat: ";
+            cin>>a;
+            cout<<"Nhap gio thu hai: ";
+            cin>>b;
+            cout<<"Ket qua: "<<a++<<endl;
+            break;
+        case 4:
+            cout<<"Nhap gio thu nhat: ";
+            cin>>a;
+            cout<<"Nhap gio thu hai: ";
+            cin>>b;
+            cout<<"Ket qua: "<<a--<<endl;
+            break;
+        case 5:
+            break;
+        default:
+            cout<<"Lua chon khong hop le"<<endl;
+            break;
+        }
+    } while (lc != 5);
 }

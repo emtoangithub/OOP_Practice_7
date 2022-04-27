@@ -69,14 +69,42 @@ istream &operator>>(istream &is, CVector &v)
 }
 int main()
 {
-    CVector v1(1, 2), v2(3, 4);
-    cout << "v1 = " << v1 << endl;
-    cout << "v2 = " << v2 << endl;
-    cout << "v1 + v2 = " << v1 + v2 << endl;
-    cout << "v1 - v2 = " << v1 - v2 << endl;
-    cout << "++v1 = " << ++v1 << endl;
-    cout << "v1++ = " << v1++ << endl;
-    cout << "--v1 = " << --v1 << endl;
-    cout << "v1-- = " << v1-- << endl;
-    return 0;
+    CVector a,b,c;
+    int lc;
+    do
+    {
+        cout<<"Hay nhap yeu cau cua ban: "<<endl;
+        cout<<"1. Nhap hai vecto"<<endl;
+        cout<<"2.Tinh toan 2 vector"<<endl;
+        cout<<"3.Tinh toan 1 vector voi 1 so"<<endl;
+        cout<<"4.Tinh toan 1 vector voi 1 vector"<<endl;
+        cout<<"5.Thoat"<<endl;
+        cin>>lc;
+        switch (lc)
+        {
+        case 1:
+            cout<<"Nhap vector a: "; 
+            cin>>a;
+            cout<<"Nhap vector b: "; 
+            cin>>b;
+            break;
+        case 2:
+            c=a+b;
+            cout<<"Ket qua cua phep cong 2 vector la: "<<c<<endl;
+            break;
+        case 3: 
+            c=a+b;
+            cout<<"Ket qua cua phep cong 1 vector voi 1 so la: "<<c<<endl;
+            break;
+        case 4:
+            c=a-b;
+            cout<<"Ket qua cua phep tru 1 vector voi 1 vector la: "<<c<<endl;
+            break;
+        case 5:
+            break;
+        default:
+            cout<<"Hay nhap lai yeu cau cua ban"<<endl;
+            break;
+        }
+    } while (lc!=5);
 }

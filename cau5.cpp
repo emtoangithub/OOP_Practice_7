@@ -144,21 +144,54 @@ ostream& operator << (ostream &out, CDate a)
 int main()
 {
     CDate a, b, c;
-    cout<<"Nhap ngay dau tien"<<endl;
-    cin>>a;
-    cout<<"Nhap ngay thu hai"<<endl;
-    cin>>b;
-    cout<<"Ngay thu nhat: "<<a;
-    cout<<"Ngay thu hai: "<<b;
-    c = a + b;
-    cout<<"Ngay thu nhat cong ngay thu hai: "<<c;
-    c = a - b;
-    cout<<"Ngay thu nhat tru ngay thu hai: "<<c;
-    cout<<"Ngay thu nhat ++: "<<++a;
-    cout<<"Ngay thu hai ++: "<<++b;
-    cout<<"Ngay thu nhat --: "<<--a;
-    cout<<"Ngay thu hai --: "<<--b;
-    cout<<"Hay nhap mot so: ";
-    int n; cin>>n;
-    cout<<"Ngay thu nhat khi cong: "<<a + n;
+    int lc;
+   do 
+   {
+    cout<<"Hay lua chon yeu cau"<<endl;
+    cout<<"1. Nhap ngay thang nam"<<endl;
+    cout<<"2. Xuat ngay thang nam"<<endl;
+    cout<<"3. Tinh khoang cach giua 2 ngay"<<endl;
+    cout<<"4. Tong 2 ngay"<<endl;
+    cout<<"5. Hieu 2 ngay"<<endl;
+    cout<<"6. Tang 1 ngay"<<endl;
+    cout<<"7. Giam 1 ngay"<<endl;
+    cout<<"8. Thoat"<<endl;
+    cin>>lc;
+    switch (lc)
+    {
+        case 1:
+            cin>>a;
+            cin>>b;
+            break;
+        case 2:
+            cout<<a;
+            cout<<b;
+            break;
+        case 3:
+            c = a - b;
+            cout<<c;
+            break;
+        case 4:
+            c = a + b;
+            cout<<c;
+            break;
+        case 5:
+            c = a - b;
+            cout<<c;
+            break;
+        case 6:
+            c = ++a;
+            cout<<c;
+            break;
+        case 7:
+            c = --a;
+            cout<<c;
+            break;
+        case 8:
+            break;
+        default:
+            cout<<"Hay chon lai yeu cau"<<endl;
+    }
+   } while (lc != 8);
+    return 0;
 }
